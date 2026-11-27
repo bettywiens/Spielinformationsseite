@@ -1,22 +1,114 @@
+:root
+{
+    --light-pink: #F9AFD2;
+    --pink:#ff9eb3;;
+    --border-pink: rgb(212, 55, 82);
+    --border-pink-opaque: rgba(212, 55, 81, 0.514);
+    --lighter-blue: rgb(230, 246, 255);
+    --light-blue: rgb(205, 237, 255);
+    --border-blue: rgb(94, 126, 145);
+    --blue: #2659D9;
+    --dark-blue: #382895;
+    --dark-blue-opaque:#3828955b;;
+}
+
+hr
+{
+    border: none;
+    border-top: 3.5px solid var(--border-pink);
+    margin: 20px 0 20px 0;
+}
+
 body
 {
+    position: relative;
     margin: 0;
-    background-image: url("images/kirby/menu/background_kirby_website.png");
-    background-size: cover;
-    height: 100vh;
+    /* height: 100vh; */
+    font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+
+#filter
+{
+    visibility: hidden;
+    position: absolute;
+    z-index: 2;
+    width: 100vw;
+    min-height: 100%;
+    background-color: rgba(0, 0, 0, 0.438);
+
+}
+
+#sidemenu
+{
+    background-image: linear-gradient(to right, var(--light-pink), var(--pink));
+
+    z-index: 3;
+    position: absolute;
+    visibility: hidden;
+
+    padding: 25px;
+    width:15.8vw;
+    min-height:100%;
+
+    color: black;
+    font-size: 1.3rem;
+    border-right: 4px solid var(--border-pink-opaque);
+    border-radius: 0 35px 35px 0;
+
+    a
+    {
+        display: block;
+        text-decoration: none;
+
+        &:visited
+        {
+            color:black;
+        }
+
+        &:hover
+        {
+            color: var(--border-pink)
+        }
+    }
+
+    img
+    {
+        height: 30px;
+        padding: 0 0 10px 0;
+    }
+
+    .sidemenu_title
+    {
+        font-weight: bold;
+    }
 }
 
 header
-{
-    /* border: 1px solid black; */
+{    
+    background-image: linear-gradient(var(--pink), var(--light-pink), var(--pink));
+    /* border-bottom: 1px solid var(--border-blue); */
     display: flex;
     align-items: center;
-    background-color: pink;
+    height: 15vh;
 
+    & a
+    {
+        text-decoration: none;
+    }
+    
     .logo
     {
         padding: 10px;
+        /* border: 1px solid blue; */
         height: 60px;
+    }
+
+    .menu
+    {
+        padding: 25px 10px;
+        height: 30px;
+        /* border: 2px solid blue; */
+        
     }
 }
 
@@ -41,7 +133,7 @@ nav
 
     & input
     {
-        border: 2px solid rgb(201, 118, 132);
+        border: 2px solid var(--border-pink);
         border-radius: 15px;
         padding: 5px;
     }
@@ -49,26 +141,122 @@ nav
 
 main
 {
-    border: 2px solid red;
+    /* border: 2px solid red; */
+    background-image: url(/images/kirby/menu/backgrounds/background_kirby_website.jpeg);
+    background-size: cover;
     display: flex;
     justify-content: center;
-    height: 100vh;
+    height: fit-content;
+
+    .content_strip
+    {
+        width: 65vw;
+        background-image: url("/images/kirby/menu/backgrounds/strip_background.jpeg");
+        background-size: cover;
+        /* height: fit-content; */
+        padding: 25px;
+
+    }
+
+    .first_header 
+    {        
+        border: 1px solid var(--border-blue);
+        border-radius: 15px;
+        box-shadow: 0 4px 8px 0 rgba(2, 0, 131, 0.2), 0 6px 20px 0 rgba(20, 0, 131, 0.19);
+        background-color: var(--lighter-blue);
+        text-align: center;
+        font-size: 1.7rem;
+        font-weight: bold;
+        color: var(--dark-blue);
+        
+        padding: 0 20px;
+    }
 
     .card_container
     {
-        border: 2px solid orange;
-        width: 65vw;
-        height: 60vh;
+        /* border: 2px solid orange; */
 
         display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;       
+        
+        a
+        {
+            text-decoration: none;
+            margin: 0;
+            padding: 0;
+            color: var(--dark-blue);
+
+            &:hover
+            {
+                color: var(--border-pink);
+            }
+            
+        }
         
     }
 
     .card_element
     {
-        margin: 10vh 0;
-        border: 2px solid blue;
-        width: 30em;
+        background-color: var(--lighter-blue);
+        border: 1px solid var(--border-blue);
+        border-radius: 15px;
+        box-shadow: 0 4px 8px 0 rgba(2, 0, 131, 0.2), 0 6px 20px 0 rgba(20, 0, 131, 0.19);
+
+        margin: 0 0 10vh 0;
+        width: 20%;
+        min-width: 210px; /* Wenn nicht mehr genug Platz ist soll die Karte nach unten springen*/
+        height: 50vh;
         
+
+        & img
+        {
+            width: 100%; /* Damit sich die Groeße des Bildes an den Container */
+            height: 40%;
+            object-fit: cover; /* Macht, dass Bild sich an Größe der Box anpasst ohne verformt zu werden*/          
+        }
+
+        & p
+        {
+            
+            padding: 5px;
+            text-align: center;
+            
+        }                
+        .card_title
+        {
+            font-weight: bolder;
+            font-size: 1.2rem;
+            color: var(--dark-blue);
+        }
+    
+        .card_description
+        {
+            font-size: 0.95rem;
+        }
+    }
+
+    .news
+    {
+        border: 1px solid var(--border-blue);
+        border-radius: 15px;
+        box-shadow: 0 4px 8px 0 rgba(2, 0, 131, 0.2), 0 6px 20px 0 rgba(20, 0, 131, 0.19);
+        background-color: var(--lighter-blue);
+        padding: 0 20px;    
+        text-align: center;
+        color: var(--dark-blue);
+    }
+
+}
+
+footer
+{        
+    .footer_container
+    {
+        background-image: linear-gradient(var(--pink), var(--light-pink), var(--pink));
+        /* border-bottom: 1px solid var(--border-blue); */
+        display: flex;
+        justify-content: center;        
+        height: 10vh;
     }
 }
